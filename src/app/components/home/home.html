@@ -1,0 +1,227 @@
+
+<!-- Header -->
+<header class="header">
+  <a href="#" class="logo">
+    <span class="logo-icon">◇</span>
+    <span>
+      <strong>Gemora</strong>
+      <small>FINE JEWELLERY</small>
+    </span>
+  </a>
+
+  <nav class="nav-links">
+    <a href="#home" class="active">Home</a>
+    <a href="#shop">Shop</a>
+    <a href="#collections">Collections</a>
+    <a href="#about">About Us</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <div class="header-actions">
+    <a href="#shop" aria-label="Search">⌕</a>
+    <a href="#shop" aria-label="Wishlist">♡</a>
+    <a href="#contact" aria-label="Account">♙</a>
+    <button class="cart-btn" (click)="addToCart()">
+      🛒 <span>{{ cartCount }}</span>
+    </button>
+  </div>
+</header>
+
+<!-- Hero / Welcome -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <span class="eyebrow">TIMELESS ELEGANCE</span>
+
+    <h1>
+      Discover Exquisite
+      <span>Jewellery for Every Moment</span>
+    </h1>
+
+    <p>
+      From classic designs to modern trends, find the
+      perfect piece that tells your story.
+    </p>
+
+    <a href="#shop" class="gold-btn">Shop Now →</a>
+
+    <div class="hero-note">
+      ✦ Crafted with love. Designed for you.
+    </div>
+  </div>
+
+  <div class="hero-image">
+    <div class="image-caption">
+      <span>THE ROYAL COLLECTION</span>
+      <h2>Elegance in Every Detail</h2>
+    </div>
+  </div>
+</section>
+
+<!-- Categories -->
+<section class="section categories" id="collections">
+  <div class="section-heading">
+    <span class="eyebrow">SHOP BY CATEGORY</span>
+    <h2>Explore Our Collections</h2>
+    <div class="heading-line"></div>
+  </div>
+
+  <div class="category-grid">
+    <a class="category-card"
+       *ngFor="let category of categories"
+       href="#shop">
+      <div class="category-image">
+        <img [src]="category.image" [alt]="category.name">
+      </div>
+      <h3>{{ category.name }}</h3>
+      <span>Shop Now →</span>
+    </a>
+  </div>
+</section>
+
+<!-- Featured Products -->
+<section class="section products-section" id="shop">
+  <div class="products-heading">
+    <div>
+      <span class="eyebrow">HANDPICKED FOR YOU</span>
+      <h2>Popular Picks</h2>
+      <div class="heading-line"></div>
+    </div>
+
+    <a href="#shop" class="view-all">View All Products →</a>
+  </div>
+
+  <div class="product-grid">
+    <article class="product-card" *ngFor="let product of products">
+      <div class="product-image">
+        <img [src]="product.image" [alt]="product.name">
+
+        <button class="wishlist-btn"
+          [class.selected]="wishlist.includes(product.name)"
+          (click)="toggleWishlist(product.name)"
+          [attr.aria-label]="'Toggle wishlist for ' + product.name">
+          {{ wishlist.includes(product.name) ? '♥' : '♡' }}
+        </button>
+
+        <span class="product-label">BESTSELLER</span>
+      </div>
+
+      <div class="product-info">
+        <h3>{{ product.name }}</h3>
+
+        <div class="price">
+          <strong>₹{{ product.price | number }}</strong>
+          <del>₹{{ product.oldPrice | number }}</del>
+        </div>
+
+        <div class="rating">
+          <span>★★★★★</span>
+          <small>({{ product.rating }})</small>
+        </div>
+
+        <button class="add-btn" (click)="addToCart()">
+          Add to Cart
+        </button>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- Special Offer -->
+<section class="offer-section">
+  <div class="offer-content">
+    <span class="eyebrow">LIMITED TIME OFFER</span>
+    <h2>Up to 50% Off</h2>
+    <p>Celebrate every moment with jewellery you love.</p>
+    <a href="#shop" class="gold-btn light-btn">Shop the Sale →</a>
+  </div>
+</section>
+
+<!-- Benefits -->
+<section class="benefits">
+  <div class="benefit">
+    <span>♧</span>
+    <div>
+      <h3>Free Shipping</h3>
+      <p>On orders above ₹2,000</p>
+    </div>
+  </div>
+
+  <div class="benefit">
+    <span>♢</span>
+    <div>
+      <h3>Secure Payments</h3>
+      <p>Safe and secure checkout</p>
+    </div>
+  </div>
+
+  <div class="benefit">
+    <span>↻</span>
+    <div>
+      <h3>Easy Returns</h3>
+      <p>Simple return process</p>
+    </div>
+  </div>
+
+  <div class="benefit">
+    <span>☏</span>
+    <div>
+      <h3>Customer Support</h3>
+      <p>We're here to help</p>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer" id="contact">
+  <div class="footer-grid">
+    <div class="footer-brand" id="about">
+      <a href="#home" class="logo footer-logo">
+        <span class="logo-icon">◇</span>
+        <span>
+          <strong>Gemora</strong>
+          <small>FINE JEWELLERY</small>
+        </span>
+      </a>
+
+      <p>
+        Timeless designs. Unmatched quality.
+        Your trusted jewellery partner.
+      </p>
+
+      <div class="social-links">
+        <a href="#contact">Instagram</a>
+        <a href="#contact">Facebook</a>
+      </div>
+    </div>
+
+    <div class="footer-column">
+      <h3>Quick Links</h3>
+      <a href="#home">Home</a>
+      <a href="#shop">Shop</a>
+      <a href="#collections">Collections</a>
+      <a href="#about">About Us</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <div class="footer-column">
+      <h3>Customer Service</h3>
+      <a href="#contact">FAQs</a>
+      <a href="#contact">Shipping Policy</a>
+      <a href="#contact">Return Policy</a>
+      <a href="#contact">Privacy Policy</a>
+      <a href="#contact">Terms & Conditions</a>
+    </div>
+
+    <div class="footer-column">
+      <h3>Contact Us</h3>
+      <p>☎ +91 98765 43210</p>
+      <p>✉ support@gemora.com</p>
+      <p>⌖ Mumbai, India</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 Gemora. All rights reserved.</p>
+    <p>Secure payments · Quality guaranteed</p>
+  </div>
+</footer>
