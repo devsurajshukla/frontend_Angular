@@ -10,58 +10,75 @@ import { CommonModule } from '@angular/common';
   styleUrl: './home.css'
 })
 export class HomeComponent {
-  categories = [
-    { name: 'Rings', image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=300' },
-    { name: 'Earrings', image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=300' },
-    { name: 'Necklaces', image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=300' },
-    { name: 'Bracelets', image: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=300' },
-    { name: 'Gold Jewellery', image: 'https://images.unsplash.com/photo-1617038220319-276d3cfab638?w=300' },
-    { name: 'Wedding Collection', image: 'https://images.unsplash.com/photo-1599459183200-59c7687a0276?w=300' }
-  ];
-
-  products = [
+  services = [
     {
-      name: 'Diamond Solitaire Ring',
-      price: 49999,
-      oldPrice: 69999,
-      rating: 4.8,
-      image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=500'
+      name: 'Suit Stitching',
+      desc: 'Salwar Suit | Anarkali | Straight Suit',
+      icon: '✿',
+      image: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=500'
     },
     {
-      name: 'Traditional Gold Earrings',
-      price: 18999,
-      oldPrice: 24999,
-      rating: 4.7,
-      image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=500'
+      name: 'Saree Blouse',
+      desc: 'Stylish | Comfortable | Perfect Fit',
+      icon: '♡',
+      image: 'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?w=500'
     },
     {
-      name: 'Pearl Gold Necklace',
-      price: 12999,
-      oldPrice: 17999,
-      rating: 4.6,
-      image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=500'
+      name: 'Lehenga Stitching',
+      desc: 'Bridal | Party Wear | Custom Design',
+      icon: '♧',
+      image: 'https://images.unsplash.com/photo-1583391733956-6c78276477e9?w=500'
     },
     {
-      name: 'Elegant Gold Bracelet',
-      price: 22999,
-      oldPrice: 29999,
-      rating: 4.9,
-      image: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=500'
+      name: 'Kurti Stitching',
+      desc: 'Casual | Office Wear | Designer',
+      icon: '✧',
+      image: 'https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?w=500'
+    },
+    {
+      name: 'Alterations',
+      desc: 'Shortening | Fitting | Repairs',
+      icon: '✂',
+      image: 'https://images.unsplash.com/photo-1590736969955-71cc94901144?w=500'
+    },
+    {
+      name: 'Custom Designs',
+      desc: 'As per your style and choice',
+      icon: '❀',
+      image: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=500'
     }
   ];
 
-  cartCount = 0;
-  wishlist: string[] = [];
+  gallery = [
+    'https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=400',
+    'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?w=400',
+    'https://images.unsplash.com/photo-1583391733956-6c78276477e9?w=400',
+    'https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?w=400',
+    'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=400',
+    'https://images.unsplash.com/photo-1590736969955-71cc94901144?w=400'
+  ];
 
-  addToCart(): void {
-    this.cartCount++;
-  }
-
-  toggleWishlist(name: string): void {
-    if (this.wishlist.includes(name)) {
-      this.wishlist = this.wishlist.filter(item => item !== name);
-    } else {
-      this.wishlist = [...this.wishlist, name];
+  reviews = [
+    {
+      name: 'Priya Sharma',
+      city: 'Lucknow',
+      text: 'The stitching quality is excellent and the fit is perfect. I am really happy with the service.'
+    },
+    {
+      name: 'Neha Verma',
+      city: 'Lucknow',
+      text: 'Very professional and friendly service. They understood my requirements and delivered on time.'
+    },
+    {
+      name: 'Ritika Singh',
+      city: 'Kanpur',
+      text: 'Beautiful designs and great finishing. I highly recommend this boutique!'
     }
+  ];
+
+  appointment(): void {
+    document.getElementById('contact')?.scrollIntoView({
+      behavior: 'smooth'
+    });
   }
 }

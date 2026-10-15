@@ -1,0 +1,275 @@
+
+:host {
+  display: block;
+  --pink: #b62958;
+  --pink-dark: #361622;
+  --pink-light: #f9e9ec;
+  --text: #30212a;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.header {
+  width: 100%;
+  min-height: 86px;
+  padding: 14px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  background: #fff;
+  border-bottom: 1px solid #f0e5e7;
+  box-shadow: 0 3px 15px rgba(54, 22, 34, 0.04);
+}
+
+/* Logo */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  color: var(--pink-dark);
+  text-decoration: none;
+}
+
+.brand-icon {
+  width: 47px;
+  height: 47px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--pink-light);
+  color: var(--pink);
+  font-size: 25px;
+}
+
+.brand-text strong {
+  display: block;
+  font-family: Georgia, serif;
+  font-size: 25px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.brand-text strong span {
+  color: var(--pink);
+  font-style: italic;
+}
+
+.brand-text small {
+  display: block;
+  margin-top: 5px;
+  font-size: 8px;
+  letter-spacing: 2px;
+  color: #80616e;
+  white-space: nowrap;
+}
+
+/* Navigation */
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.navigation a {
+  position: relative;
+  padding: 10px 0;
+  color: #57434c;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.navigation a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 3px;
+  width: 0;
+  height: 2px;
+  background: var(--pink);
+  transition: width 0.2s ease;
+}
+
+.navigation a:hover,
+.navigation a.active {
+  color: var(--pink);
+}
+
+.navigation a:hover::after,
+.navigation a.active::after {
+  width: 100%;
+}
+
+/* Right-side actions */
+.header-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 17px;
+  flex-shrink: 0;
+}
+
+.auth-links {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.login-btn,
+.register-btn {
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: 0.2s ease;
+}
+
+.login-btn {
+  color: var(--pink-dark);
+}
+
+.login-btn:hover {
+  color: var(--pink);
+}
+
+.login-btn,
+.register-btn {
+  color: var(--pink);
+  border: 1px solid var(--pink);
+  padding: 10px 15px;
+  border-radius: 25px;
+}
+
+.login-btn,
+.register-btn:hover {
+  background: var(--pink-light);
+}
+
+/* Appointment button */
+.book-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 17px;
+  border-radius: 25px;
+  background: var(--pink);
+  color: #fff;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: 0 4px 10px rgba(182, 41, 88, 0.15);
+  transition: 0.2s ease;
+}
+
+.book-btn:hover {
+  background: #8f1b43;
+  transform: translateY(-1px);
+}
+
+/* Tablet */
+@media (max-width: 1150px) {
+  .header {
+    padding: 14px 3%;
+    gap: 18px;
+  }
+
+  .navigation {
+    gap: 15px;
+  }
+
+  .header-actions {
+    gap: 12px;
+  }
+
+  .auth-links {
+    gap: 10px;
+  }
+
+  .book-btn {
+    padding: 11px 13px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 850px) {
+  .header {
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 14px 5%;
+  }
+
+  .brand {
+    margin-right: auto;
+  }
+
+  .header-actions {
+    gap: 12px;
+  }
+
+  .navigation {
+    order: 3;
+    width: 100%;
+    justify-content: flex-start;
+    gap: 25px;
+    overflow-x: auto;
+    padding: 2px 0 5px;
+    scrollbar-width: none;
+  }
+
+  .navigation::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .brand-icon {
+    width: 39px;
+    height: 39px;
+    font-size: 21px;
+  }
+
+  .brand-text strong {
+    font-size: 20px;
+  }
+
+  .brand-text small {
+    font-size: 7px;
+    letter-spacing: 1.3px;
+  }
+
+  .header-actions {
+    width: 100%;
+    justify-content: space-between;
+    order: 2;
+  }
+
+  .navigation {
+    order: 3;
+    gap: 23px;
+  }
+
+  .navigation a {
+    font-size: 12px;
+  }
+
+  .register-btn {
+    padding: 9px 13px;
+  }
+
+  .book-btn {
+    padding: 11px 14px;
+    font-size: 12px;
+  }
+}
